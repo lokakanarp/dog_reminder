@@ -7,23 +7,36 @@ class App extends Component {
 	
 	state = {
 		timeSettingDiv: false,
-		timeSetting: 0,
-		mon: [800, 1600]
+		//newTime: 0,
+		timeClicked: 0,
+		mon: [8, 16]
+		
 	}
 
 	showTimeSettingDiv = () => {
-		this.setState({timeSettingDiv: true})
+		this.setState({timeSettingDiv: true})	
+	}
+	setTimeClicked = (time) => {
+		this.setState({timeClicked: time})
+	}
+	updateTimeArray = (hours, min) => {
+		let newHours = this.state.timeClicked + hours;
+		this.setState({mon: this.state.mon.concat([newHours])})
 	}
 
 	render() {
 		if (this.state.mon) {
-			let times = this.state.mon.map((time) => <li key={time} onClick={this.showTimeSettingDiv}>{time}</li>)
+			let times = this.state.mon.map((time) => <li key={time} onClick={() => {
+				this.setTimeClicked(time);
+				this.showTimeSettingDiv();
+			}}>{time}</li>)
 			return (
 			  <div>
 				<h2>Måndag</h2>
 				<ul>{times}</ul>
 				<TimeSet timeSettingDiv={this.state.timeSettingDiv}
-						 timeSetting={this.state.timeSetting}/>
+						 timeClicked={this.state.timeClicked}
+						 updateTimeArray={this.updateTimeArray} />
 			  </div>
 			)
   		} 
