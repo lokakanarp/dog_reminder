@@ -11,12 +11,12 @@ class Login extends Component {
 	}
 	
 	addingHours = () => {
-		if(this.state.hours < 24){
+		if(this.state.hours + this.props.timeClicked < 24){
 			this.setState({hours: this.state.hours + 1});
 		}	
 	}
 	subtractingHours = () => {
-		if(this.state.hours > 0)
+		if(this.state.hours + this.props.timeClicked > 0)
 		this.setState({hours: this.state.hours - 1})
 	}
 

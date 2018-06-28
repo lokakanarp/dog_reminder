@@ -12,22 +12,31 @@ class App extends Component {
 		mon: [8, 16]
 		
 	}
-
-	showTimeSettingDiv = () => {
-		this.setState({timeSettingDiv: true})	
-	}
 	setTimeClicked = (time) => {
 		this.setState({timeClicked: time})
 	}
+	showTimeSettingDiv = () => {
+		this.setState({timeSettingDiv: true})	
+	}
+	deleteTime = (timeToDelete) => {
+		
+		this.setState({mon: this.state.mon.filter((time) => time !== timeToDelete)});
+	}
 	updateTimeArray = (hours, min) => {
 		let newHours = this.state.timeClicked + hours;
-		this.setState({mon: this.state.mon.concat([newHours])})
+		if(this.state.mon.find((time) => time === newHours)) {
+			console.log("duplicate!")
+		}
+		else {
+			this.setState({mon: this.state.mon.concat([newHours])})
+		}
 	}
 
 	render() {
 		if (this.state.mon) {
 			let times = this.state.mon.map((time) => <li key={time} onClick={() => {
 				this.setTimeClicked(time);
+				this.deleteTime(time);
 				this.showTimeSettingDiv();
 			}}>{time}</li>)
 			return (
