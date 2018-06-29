@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TimeSet from './TimeSet';
+import Nav from './Nav';
 
 import '../App.css';
 
@@ -43,20 +44,35 @@ class App extends Component {
 				this.showTimeSettingDiv();
 			}}>{time}</li>)
 			return (
-			  <div className="wrapper">
-				<div className="monday">
-					<h2>Måndag</h2>
-					<ul>{times}</ul>
-					<button onClick={this.showTimeSettingDiv}>New time</button>
-					<TimeSet timeSettingDiv={this.state.timeSettingDiv}
-						 timeClicked={this.state.timeClicked}
-						 updateTimeArray={this.updateTimeArray} />
+				<div>
+					<Nav />
+					  <div className="wrapper">
+						<div>
+							<h2>VECKOÖVERSIKT</h2>
+						</div>
+						<div className="weekday">
+							<div className="weekdayHeading">
+								<h2>MÅNDAG</h2>
+							</div>
+							<div className="circle">
+							</div>
+							<ul>{times}</ul>
+							<button onClick={this.showTimeSettingDiv}>New time</button>
+							<TimeSet timeSettingDiv={this.state.timeSettingDiv}
+								 timeClicked={this.state.timeClicked}
+								 updateTimeArray={this.updateTimeArray} />
+						</div>
+					  </div>
 				</div>
-			  </div>
 			)
   		} 
-		return (<p>you don´t have time</p>)
-			}	
-		}
+		return (
+			<div>
+				<Nav />
+					<p>you don´t have time</p>
+			</div>
+			)
+		}	
+	}
 
 export default App;
