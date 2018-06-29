@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TimeSet from './TimeSet';
 import Nav from './Nav';
+import u210 from '../images/u210.png';
 
 import '../App.css';
 
@@ -8,8 +9,9 @@ class App extends Component {
 	
 	state = {
 		timeSettingDiv: false,
+		weeklyCalender: true,
 		timeClicked: 0,
-		mon: [8, 16]
+		mon: [0, 16]
 		
 	}
 	setTimeClicked = (time) => {
@@ -21,7 +23,6 @@ class App extends Component {
 	showTimeSettingDiv = () => {
 		this.setState({timeSettingDiv: true})	
 	}
-	
 	updateTimeArray = (hours) => {
 		this.setState({timeSettingDiv: false})
 		let newHours = this.state.timeClicked + hours;
@@ -33,16 +34,18 @@ class App extends Component {
 		}
 		this.setState({timeClicked: 0});
 	}
-
 	render() {
-		if (this.state.mon) {
-			let sortedtimes = this.state.mon;
-			sortedtimes.sort(function(a, b){return a-b});
-			let times = sortedtimes.map((time) => <li key={time} onClick={() => {
-				this.setTimeClicked(time);
-				this.deleteTime(time);
-				this.showTimeSettingDiv();
-			}}>{time}</li>)
+		
+		let sortedtimes = this.state.mon;
+		sortedtimes.sort(function(a, b){return a-b});
+		let times = sortedtimes.map((time) => 
+			<li key={time} onClick={() => {
+			this.setTimeClicked(time);
+			this.deleteTime(time);
+			this.showTimeSettingDiv();
+		}}>{time}</li>)
+
+		if (this.state.weeklyCalender) {
 			return (
 				<div>
 					<Nav />
@@ -54,13 +57,20 @@ class App extends Component {
 							<div className="weekdayHeading">
 								<h2>MÅNDAG</h2>
 							</div>
-							<div className="circle">
+							<div className="weekdayMain">
+								<div className="weekdayImg">
+									<div className="circle">
+										<img src={u210} alt="dog"/>
+									</div>
+								</div>
+								<div className="weekdayTimes">
+									<ul>{times}</ul>
+									<div className="addButton" onClick={this.showTimeSettingDiv}>NY TID</div>
+									<TimeSet timeSettingDiv={this.state.timeSettingDiv}
+										 timeClicked={this.state.timeClicked}
+										 updateTimeArray={this.updateTimeArray} />
+								</div>
 							</div>
-							<ul>{times}</ul>
-							<button onClick={this.showTimeSettingDiv}>New time</button>
-							<TimeSet timeSettingDiv={this.state.timeSettingDiv}
-								 timeClicked={this.state.timeClicked}
-								 updateTimeArray={this.updateTimeArray} />
 						</div>
 					  </div>
 				</div>

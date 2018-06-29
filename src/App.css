@@ -3,11 +3,17 @@ body {
 }
 li {
 	list-style: none;
+	color: #660000;
+	font-size: 6.5vw;
+	font-weight: 700;
 }
 h2 {
 	font-size: 5vw;
 	margin-bottom: 20px;
 	color: #660000;
+}
+ul {
+	padding: 0;
 }
 .weekday h2 {
 	color: #006666;
@@ -15,6 +21,7 @@ h2 {
 }
 .nav {
 	background-color: #99CCCC;
+	color: #660000;
 	padding: 5px 0 5px 15px;
 	margin-bottom: 15px;
 }
@@ -39,9 +46,45 @@ h2 {
 .weekdayHeading {
 	border-bottom: 1px solid gray;
 }
+.weekdayMain {
+	display: flex;
+	flex: 0 1 auto;
+	justify-content: space-between;
+}
+.weekdayImg {
+	flex: 0 1 auto;
+	padding: 10px 0 10px 0;
+	width: 48%;
+}
+.weekdayTimes {
+	flex: 0 1 auto;
+	text-align: center;
+	width: 48%;
+	color: #660000;
+	
+}
 .circle {
 	background: linear-gradient(#FFFFFF, #99CCCC);
 	height: 120px;
 	width: 120px;
 	border-radius: 50%;
+	padding: 6px;
+	vertical-align: middle;
+	box-sizing: border-box;
+	position: relative;
+}
+img {
+	position: absolute;
+	max-width: 90%;
+}
+.addButton {
+	width: 75%;
+	background-color: #006666;
+	font-weight: 700;
+	color: white;
+	//border: 3px solid #006666;
+	border-radius: 10px;
+	padding: 7px 0 5px 0;
+	margin: 0 auto;
+	
 }
