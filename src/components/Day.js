@@ -1,5 +1,6 @@
 import React from 'react';
 import TimeSet from './TimeSet';
+import WeekdayHeading from './WeekdayHeading';
 import u210 from '../images/u210.png';
 
 export default function Nav (props) {
@@ -13,9 +14,7 @@ export default function Nav (props) {
 		}}>{time}</li>)
 	return (
 	<div className="weekday">
-		<div className="weekdayHeading">
-			<h2>MÅNDAG</h2>
-		</div>
+		<WeekdayHeading day={props.day} />
 		<div className="weekdayMain">
 			<div className="weekdayImg">
 				<div className="circle">

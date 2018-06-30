@@ -12,7 +12,13 @@ class App extends Component {
 		timeSettingDiv: false,
 		weeklyCalender: true,
 		timeClicked: 0,
-		mon: [0, 16]
+		mon: [0, 16],
+		tue: [],
+		wed: [],
+		thu: [],
+		fri: [],
+		sat: [],
+		sun: []
 		
 	}
 	setTimeClicked = (time) => {
@@ -27,11 +33,62 @@ class App extends Component {
 	updateTimeArray = (hours, dayOfWeek, day) => {
 		this.setState({timeSettingDiv: false})
 		let newHours = this.state.timeClicked + hours;
-		if(dayOfWeek.find((time) => time === newHours)) {
-			console.log("duplicate!")
+		if(dayOfWeek === this.state.mon) {
+			if(dayOfWeek.find((time) => time === newHours)) {
+				console.log("duplicate!")
+			}
+			else {
+				this.setState({mon: dayOfWeek.concat([newHours])})
+			}
 		}
-		else {
-			this.setState({mon: dayOfWeek.concat([newHours])})
+		else if(dayOfWeek === this.state.tue) {
+			console.log("tisdag");
+			if(dayOfWeek.find((time) => time === newHours)) {
+				console.log("duplicate!")
+			}
+			else {
+				this.setState({tue: dayOfWeek.concat([newHours])})
+			}
+		}
+		else if(dayOfWeek === this.state.wed) {
+			if(dayOfWeek.find((time) => time === newHours)) {
+				console.log("duplicate!")
+			}
+			else {
+				this.setState({wed: dayOfWeek.concat([newHours])})
+			}
+		}
+		else if(dayOfWeek === this.state.thu) {
+			if(dayOfWeek.find((time) => time === newHours)) {
+				console.log("duplicate!")
+			}
+			else {
+				this.setState({thu: dayOfWeek.concat([newHours])})
+			}
+		}
+		else if(dayOfWeek === this.state.fri) {
+			if(dayOfWeek.find((time) => time === newHours)) {
+				console.log("duplicate!")
+			}
+			else {
+				this.setState({tue: dayOfWeek.concat([newHours])})
+			}
+		}
+		else if(dayOfWeek === this.state.sat) {
+			if(dayOfWeek.find((time) => time === newHours)) {
+				console.log("duplicate!")
+			}
+			else {
+				this.setState({sat: dayOfWeek.concat([newHours])})
+			}
+		}
+		else if(dayOfWeek === this.state.sun) {
+			if(dayOfWeek.find((time) => time === newHours)) {
+				console.log("duplicate!")
+			}
+			else {
+				this.setState({sun: dayOfWeek.concat([newHours])})
+			}
 		}
 		this.setState({timeClicked: 0});
 	}
@@ -45,8 +102,22 @@ class App extends Component {
 					<Nav />
 					  <WeeklyCalender>
 							<Day 
-								
+								day={"mon"}
 								dayOfWeek={this.state.mon}
+								showTimeSettingDiv={this.showTimeSettingDiv}
+								timeSettingDiv={this.state.timeSettingDiv}
+								timeClicked={this.state.timeClicked}
+								updateTimeArray={this.updateTimeArray} />
+							<Day 
+								day={"tue"}
+								dayOfWeek={this.state.tue}
+								showTimeSettingDiv={this.showTimeSettingDiv}
+								timeSettingDiv={this.state.timeSettingDiv}
+								timeClicked={this.state.timeClicked}
+								updateTimeArray={this.updateTimeArray} />
+							<Day 
+								day={"wed"}
+								dayOfWeek={this.state.wed}
 								showTimeSettingDiv={this.showTimeSettingDiv}
 								timeSettingDiv={this.state.timeSettingDiv}
 								timeClicked={this.state.timeClicked}
