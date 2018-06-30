@@ -26,7 +26,7 @@ class Login extends Component {
 	}
 
 	handleSubmit = () => {
-	  		this.props.updateTimeArray(this.state.hours, this.props.dayOfWeek, this.props.day);
+	  		this.props.updateTimeArray(this.state.hours, this.props.dayOfWeek);
 			this.setState({hours: 0, min: 0})
 	}
 

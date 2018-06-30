@@ -13,7 +13,12 @@ class App extends Component {
 		weeklyCalender: true,
 		timeClicked: 0,
 		mon: [0, 16],
-		tue: []
+		tue: [],
+		wed: [],
+		thu: [],
+		fri: [],
+		sat: [],
+		sun: []
 		
 	}
 	setTimeClicked = (time) => {
@@ -29,6 +34,7 @@ class App extends Component {
 		this.setState({timeSettingDiv: false})
 		let newHours = this.state.timeClicked + hours;
 		if(dayOfWeek === this.state.mon) {
+			console.log("måndag");
 			if(dayOfWeek.find((time) => time === newHours)) {
 				console.log("duplicate!")
 			}
@@ -37,6 +43,7 @@ class App extends Component {
 			}
 		}
 		else if(dayOfWeek === this.state.tue) {
+			console.log("tisdag");
 			if(dayOfWeek.find((time) => time === newHours)) {
 				console.log("duplicate!")
 			}
@@ -60,7 +67,7 @@ class App extends Component {
 				this.setState({thu: dayOfWeek.concat([newHours])})
 			}
 		}
-		else if(dayOfWeek === this.state.tue) {
+		else if(dayOfWeek === this.state.fri) {
 			if(dayOfWeek.find((time) => time === newHours)) {
 				console.log("duplicate!")
 			}
@@ -68,13 +75,25 @@ class App extends Component {
 				this.setState({tue: dayOfWeek.concat([newHours])})
 			}
 		}
-		
+		else if(dayOfWeek === this.state.sat) {
+			if(dayOfWeek.find((time) => time === newHours)) {
+				console.log("duplicate!")
+			}
+			else {
+				this.setState({sat: dayOfWeek.concat([newHours])})
+			}
+		}
+		else if(dayOfWeek === this.state.sun) {
+			if(dayOfWeek.find((time) => time === newHours)) {
+				console.log("duplicate!")
+			}
+			else {
+				this.setState({sun: dayOfWeek.concat([newHours])})
+			}
+		}
 		this.setState({timeClicked: 0});
 	}
 	render() {
-		
-		
-
 		if (this.state.weeklyCalender) {
 			return (
 				<div>
