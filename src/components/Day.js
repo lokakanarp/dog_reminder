@@ -3,7 +3,7 @@ import TimeSet from './TimeSet';
 import WeekdayHeading from './WeekdayHeading';
 import u210 from '../images/u210.png';
 
-export default function Nav (props) {
+export default function Day (props) {
 	let sortedtimes = props.dayOfWeek;
 		sortedtimes.sort(function(a, b){return a-b});
 		let times = sortedtimes.map((time) => 
@@ -24,11 +24,13 @@ export default function Nav (props) {
 			<div className="weekdayTimes">
 				<ul>{times}</ul> 
 				<div className="addButton" onClick={props.showTimeSettingDiv}>NY TID</div>
-				<TimeSet timeSettingDiv={props.timeSettingDiv}
+				<TimeSet 
+					
+					day={props.day}
+					 timeSettingDiv={props.timeSettingDiv}
 					 timeClicked={props.timeClicked}
 					 updateTimeArray={props.updateTimeArray}
-					
-					dayOfWeek={props.dayOfWeek}/>
+					 dayOfWeek={props.dayOfWeek} />
 			</div>
 		</div>
 	</div>)

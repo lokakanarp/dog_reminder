@@ -18,13 +18,12 @@ class App extends Component {
 		thu: [],
 		fri: [],
 		sat: [],
-		sun: []
-		
+		sun: []	
 	}
 	setTimeClicked = (time) => {
-		this.setState({timeClicked: time})
+		this.setState({timeClicked: time});
 	}
-	deleteTime = (timeToDelete) => {
+	deleteTime = (timeToDelete, dayOfWeek) => {
 		this.setState({mon: this.state.mon.filter((time) => time !== timeToDelete)});
 	}
 	showTimeSettingDiv = () => {
@@ -42,7 +41,6 @@ class App extends Component {
 			}
 		}
 		else if(dayOfWeek === this.state.tue) {
-			console.log("tisdag");
 			if(dayOfWeek.find((time) => time === newHours)) {
 				console.log("duplicate!")
 			}
@@ -94,8 +92,6 @@ class App extends Component {
 	}
 	render() {
 		
-		
-
 		if (this.state.weeklyCalender) {
 			return (
 				<div>
@@ -107,22 +103,29 @@ class App extends Component {
 								showTimeSettingDiv={this.showTimeSettingDiv}
 								timeSettingDiv={this.state.timeSettingDiv}
 								timeClicked={this.state.timeClicked}
-								updateTimeArray={this.updateTimeArray} />
+								updateTimeArray={this.updateTimeArray}
+								deleteTime={this.deleteTime}
+								setTimeClicked={this.setTimeClicked} />
 							<Day 
 								day={"tue"}
 								dayOfWeek={this.state.tue}
 								showTimeSettingDiv={this.showTimeSettingDiv}
 								timeSettingDiv={this.state.timeSettingDiv}
 								timeClicked={this.state.timeClicked}
-								updateTimeArray={this.updateTimeArray} />
+								updateTimeArray={this.updateTimeArray}
+								deleteTime={this.deleteTime}
+								setTimeClicked={this.setTimeClicked} />
 							<Day 
 								day={"wed"}
 								dayOfWeek={this.state.wed}
 								showTimeSettingDiv={this.showTimeSettingDiv}
 								timeSettingDiv={this.state.timeSettingDiv}
 								timeClicked={this.state.timeClicked}
-								updateTimeArray={this.updateTimeArray} />
+								updateTimeArray={this.updateTimeArray}
+								deleteTime={this.deleteTime}
+								setTimeClicked={this.setTimeClicked} />
 					  </WeeklyCalender>
+					  
 				</div>
 			)
   		} 

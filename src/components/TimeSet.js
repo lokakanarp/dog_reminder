@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Login extends Component {
+class TimeSet extends Component {
 	state = {
 		hours: 0,
 		min: 0
@@ -32,7 +32,8 @@ class Login extends Component {
 
 	render() {
 			if (this.props.timeSettingDiv) {
-			return (<div>
+			return (<div className="timeSetDiv">
+					<h1>time for {this.props.day}</h1>
 					<p onClick={this.addingHours}>timmar plus</p>
 					<p onClick={this.addingMinutes}>minuter plus</p>
 					<h3>{this.props.timeClicked + this.state.hours}</h3>
@@ -45,4 +46,4 @@ class Login extends Component {
 	}
 }
 
-export default Login;
+export default TimeSet;
