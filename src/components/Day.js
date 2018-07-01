@@ -1,37 +1,52 @@
-import React from 'react';
+import React, { Component } from 'react';
 import TimeSet from './TimeSet';
 import WeekdayHeading from './WeekdayHeading';
 import u210 from '../images/u210.png';
 
-export default function Day (props) {
-	let sortedtimes = props.dayOfWeek;
+class Day extends Component {
+	state = {
+		timeSettingDiv: false
+	}
+
+	showTimeSettingDiv = () => {
+		console.log("hej");
+		this.setState({timeSettingDiv: true})	
+	}
+	closeTimeSettingDiv = () => {
+		this.setState({timeSettingDiv: false})
+	}
+	
+	render () {
+		let sortedtimes = this.props.dayOfWeek;
 		sortedtimes.sort(function(a, b){return a-b});
 		let times = sortedtimes.map((time) => 
 			<li key={time} onClick={() => {
-			props.setTimeClicked(time);
-			props.deleteTime(time);
-			props.showTimeSettingDiv();
+			this.props.setTimeClicked(time);
+			this.props.deleteTime(time);
+			this.props.showTimeSettingDiv();
 		}}>{time}</li>)
-	return (
-	<div className="weekday">
-		<WeekdayHeading day={props.day} />
-		<div className="weekdayMain">
-			<div className="weekdayImg">
-				<div className="circle">
-					<img src={u210} alt="dog"/>
+		return (
+		<div className="weekday">
+			<WeekdayHeading day={this.props.day} />
+			<div className="weekdayMain">
+				<div className="weekdayImg">
+					<div className="circle">
+						<img src={u210} alt="dog"/>
+					</div>
+				</div>
+				<div className="weekdayTimes">
+					<ul>{times}</ul> 
+					<div className="addButton" onClick={this.showTimeSettingDiv}>NY TID</div>
+					<TimeSet 
+						day={this.props.day}
+						 timeSettingDiv={this.state.timeSettingDiv}
+						 timeClicked={this.props.timeClicked}
+						 updateTimeArray={this.props.updateTimeArray}
+						 dayOfWeek={this.props.dayOfWeek}
+						 closeTimeSettingDiv={this.closeTimeSettingDiv}/>
 				</div>
 			</div>
-			<div className="weekdayTimes">
-				<ul>{times}</ul> 
-				<div className="addButton" onClick={props.showTimeSettingDiv}>NY TID</div>
-				<TimeSet 
-					
-					day={props.day}
-					 timeSettingDiv={props.timeSettingDiv}
-					 timeClicked={props.timeClicked}
-					 updateTimeArray={props.updateTimeArray}
-					 dayOfWeek={props.dayOfWeek} />
-			</div>
-		</div>
-	</div>)
+		</div>)
+	}
 }
+export default Day;

@@ -39,7 +39,7 @@ class TimeSet extends Component {
 					<h3>{this.props.timeClicked + this.state.hours}</h3>
 					<p onClick={this.subtractingHours}>timmar minus</p>
 					<p onClick={this.subtractingMinutes}>minuter minus</p>
-					<button onClick={this.handleSubmit}>skicka</button>
+					<button onClick={() => {this.handleSubmit(); this.props.closeTimeSettingDiv();}}>skicka</button>
 					</div>);
 		  }
 		return null;

@@ -9,7 +9,6 @@ import '../App.css';
 class App extends Component {
 	
 	state = {
-		timeSettingDiv: false,
 		weeklyCalender: true,
 		timeClicked: 0,
 		mon: [0, 16],
@@ -26,11 +25,11 @@ class App extends Component {
 	deleteTime = (timeToDelete, dayOfWeek) => {
 		this.setState({mon: this.state.mon.filter((time) => time !== timeToDelete)});
 	}
-	showTimeSettingDiv = () => {
-		this.setState({timeSettingDiv: true})	
-	}
+	//showTimeSettingDiv = () => {
+		//this.setState({timeSettingDiv: true})	
+	//}
 	updateTimeArray = (hours, dayOfWeek, day) => {
-		this.setState({timeSettingDiv: false})
+		//this.setState({timeSettingDiv: false})
 		let newHours = this.state.timeClicked + hours;
 		if(dayOfWeek === this.state.mon) {
 			if(dayOfWeek.find((time) => time === newHours)) {
@@ -100,7 +99,7 @@ class App extends Component {
 							<Day 
 								day={"mon"}
 								dayOfWeek={this.state.mon}
-								showTimeSettingDiv={this.showTimeSettingDiv}
+								//showTimeSettingDiv={this.showTimeSettingDiv}
 								timeSettingDiv={this.state.timeSettingDiv}
 								timeClicked={this.state.timeClicked}
 								updateTimeArray={this.updateTimeArray}
@@ -109,7 +108,7 @@ class App extends Component {
 							<Day 
 								day={"tue"}
 								dayOfWeek={this.state.tue}
-								showTimeSettingDiv={this.showTimeSettingDiv}
+								//showTimeSettingDiv={this.showTimeSettingDiv}
 								timeSettingDiv={this.state.timeSettingDiv}
 								timeClicked={this.state.timeClicked}
 								updateTimeArray={this.updateTimeArray}
@@ -118,7 +117,7 @@ class App extends Component {
 							<Day 
 								day={"wed"}
 								dayOfWeek={this.state.wed}
-								showTimeSettingDiv={this.showTimeSettingDiv}
+								//showTimeSettingDiv={this.showTimeSettingDiv}
 								timeSettingDiv={this.state.timeSettingDiv}
 								timeClicked={this.state.timeClicked}
 								updateTimeArray={this.updateTimeArray}
