@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 import Day from './Day';
 import Nav from './Nav';
 import WeeklyCalender from './WeeklyCalender';
+import u208 from '../images/u208.png';
+import u209 from '../images/u209.png';
+import u210 from '../images/u210.png';
+import u211 from '../images/u211.png';
+import u212 from '../images/u212.png';
+import u213 from '../images/u213.png';
+import u214 from '../images/u214.png';
 
 
 import '../App.css';
@@ -25,9 +32,6 @@ class App extends Component {
 	deleteTime = (timeToDelete, dayOfWeek) => {
 		this.setState({mon: this.state.mon.filter((time) => time !== timeToDelete)});
 	}
-	//showTimeSettingDiv = () => {
-		//this.setState({timeSettingDiv: true})	
-	//}
 	updateTimeArray = (hours, dayOfWeek, day) => {
 		//this.setState({timeSettingDiv: false})
 		let newHours = this.state.timeClicked + hours;
@@ -97,28 +101,57 @@ class App extends Component {
 					<Nav />
 					  <WeeklyCalender>
 							<Day 
+								src={u209}
 								day={"mon"}
 								dayOfWeek={this.state.mon}
-								//showTimeSettingDiv={this.showTimeSettingDiv}
-								timeSettingDiv={this.state.timeSettingDiv}
 								timeClicked={this.state.timeClicked}
 								updateTimeArray={this.updateTimeArray}
 								deleteTime={this.deleteTime}
 								setTimeClicked={this.setTimeClicked} />
 							<Day 
+								src={u210}
 								day={"tue"}
 								dayOfWeek={this.state.tue}
-								//showTimeSettingDiv={this.showTimeSettingDiv}
-								timeSettingDiv={this.state.timeSettingDiv}
 								timeClicked={this.state.timeClicked}
 								updateTimeArray={this.updateTimeArray}
 								deleteTime={this.deleteTime}
 								setTimeClicked={this.setTimeClicked} />
 							<Day 
+								src={u211}
 								day={"wed"}
 								dayOfWeek={this.state.wed}
-								//showTimeSettingDiv={this.showTimeSettingDiv}
-								timeSettingDiv={this.state.timeSettingDiv}
+								timeClicked={this.state.timeClicked}
+								updateTimeArray={this.updateTimeArray}
+								deleteTime={this.deleteTime}
+								setTimeClicked={this.setTimeClicked} />
+							<Day 
+								src={u212}
+								day={"thu"}
+								dayOfWeek={this.state.thu}
+								timeClicked={this.state.timeClicked}
+								updateTimeArray={this.updateTimeArray}
+								deleteTime={this.deleteTime}
+								setTimeClicked={this.setTimeClicked} />
+							<Day 
+								src={u213}
+								day={"fri"}
+								dayOfWeek={this.state.fri}
+								timeClicked={this.state.timeClicked}
+								updateTimeArray={this.updateTimeArray}
+								deleteTime={this.deleteTime}
+								setTimeClicked={this.setTimeClicked} />
+							<Day 
+								src={u214}
+								day={"sat"}
+								dayOfWeek={this.state.sat}
+								timeClicked={this.state.timeClicked}
+								updateTimeArray={this.updateTimeArray}
+								deleteTime={this.deleteTime}
+								setTimeClicked={this.setTimeClicked} />
+							<Day 
+								src={u208}
+								day={"sun"}
+								dayOfWeek={this.state.sun}
 								timeClicked={this.state.timeClicked}
 								updateTimeArray={this.updateTimeArray}
 								deleteTime={this.deleteTime}
