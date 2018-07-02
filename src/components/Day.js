@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import TimeSet from './TimeSet';
 import WeekdayHeading from './WeekdayHeading';
-import u210 from '../images/u210.png';
 
 class Day extends Component {
 	state = {
@@ -22,8 +21,8 @@ class Day extends Component {
 		let times = sortedtimes.map((time) => 
 			<li key={time} onClick={() => {
 			this.props.setTimeClicked(time);
-			this.props.deleteTime(time);
-			this.props.showTimeSettingDiv();
+			this.props.deleteTime(time, this.props.dayOfWeek);
+			this.showTimeSettingDiv();
 		}}>{time}</li>)
 		return (
 		<div className="weekday">

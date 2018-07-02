@@ -33,13 +33,14 @@ class TimeSet extends Component {
 	render() {
 			if (this.props.timeSettingDiv) {
 			return (<div className="timeSetDiv">
-					<h1>time for {this.props.day}</h1>
-					<p onClick={this.addingHours}>timmar plus</p>
-					<p onClick={this.addingMinutes}>minuter plus</p>
-					<h3>{this.props.timeClicked + this.state.hours}</h3>
-					<p onClick={this.subtractingHours}>timmar minus</p>
-					<p onClick={this.subtractingMinutes}>minuter minus</p>
-					<button onClick={() => {this.handleSubmit(); this.props.closeTimeSettingDiv();}}>skicka</button>
+						<h3>Ställ in en tid för påminnelse för {this.props.day}.</h3>
+						<p onClick={this.addingHours}>timmar plus</p>
+						<p onClick={this.addingMinutes}>minuter plus</p>
+						<h3>{this.props.timeClicked + this.state.hours}</h3>
+						<p onClick={this.subtractingHours}>timmar minus</p>
+						<p onClick={this.subtractingMinutes}>minuter minus</p>
+						<button className="timeSetDivRemoveButton" onClick={this.props.closeTimeSettingDiv}>TA BORT TID</button>
+						<button className="timeSetDivButton" onClick={() => {this.handleSubmit(); this.props.closeTimeSettingDiv();}}>KLAR</button>
 					</div>);
 		  }
 		return null;

@@ -17,6 +17,7 @@ class App extends Component {
 	
 	state = {
 		weeklyCalender: true,
+		home: false,
 		timeClicked: 0,
 		mon: [0, 16],
 		tue: [],
@@ -30,10 +31,23 @@ class App extends Component {
 		this.setState({timeClicked: time});
 	}
 	deleteTime = (timeToDelete, dayOfWeek) => {
-		this.setState({mon: this.state.mon.filter((time) => time !== timeToDelete)});
+		if(dayOfWeek === this.state.mon){
+			this.setState({mon: this.state.mon.filter((time) => time !== timeToDelete)});
+		} else if(dayOfWeek === this.state.tue){
+			this.setState({tue: this.state.tue.filter((time) => time !== timeToDelete)});
+		} else if(dayOfWeek === this.state.wed){
+			this.setState({wed: this.state.wed.filter((time) => time !== timeToDelete)});
+		} else if(dayOfWeek === this.state.thu){
+			this.setState({thu: this.state.thu.filter((time) => time !== timeToDelete)});
+		} else if(dayOfWeek === this.state.fri){
+			this.setState({fri: this.state.fri.filter((time) => time !== timeToDelete)});
+		} else if(dayOfWeek === this.state.sat){
+			this.setState({sat: this.state.sat.filter((time) => time !== timeToDelete)});
+		} else if(dayOfWeek === this.state.sun){
+			this.setState({sun: this.state.sun.filter((time) => time !== timeToDelete)});
+		}
 	}
 	updateTimeArray = (hours, dayOfWeek, day) => {
-		//this.setState({timeSettingDiv: false})
 		let newHours = this.state.timeClicked + hours;
 		if(dayOfWeek === this.state.mon) {
 			if(dayOfWeek.find((time) => time === newHours)) {
@@ -72,7 +86,7 @@ class App extends Component {
 				console.log("duplicate!")
 			}
 			else {
-				this.setState({tue: dayOfWeek.concat([newHours])})
+				this.setState({fri: dayOfWeek.concat([newHours])})
 			}
 		}
 		else if(dayOfWeek === this.state.sat) {
@@ -102,7 +116,7 @@ class App extends Component {
 					  <WeeklyCalender>
 							<Day 
 								src={u209}
-								day={"mon"}
+								day={"Måndag"}
 								dayOfWeek={this.state.mon}
 								timeClicked={this.state.timeClicked}
 								updateTimeArray={this.updateTimeArray}
@@ -110,7 +124,7 @@ class App extends Component {
 								setTimeClicked={this.setTimeClicked} />
 							<Day 
 								src={u210}
-								day={"tue"}
+								day={"Tisdag"}
 								dayOfWeek={this.state.tue}
 								timeClicked={this.state.timeClicked}
 								updateTimeArray={this.updateTimeArray}
@@ -118,7 +132,7 @@ class App extends Component {
 								setTimeClicked={this.setTimeClicked} />
 							<Day 
 								src={u211}
-								day={"wed"}
+								day={"Onsdag"}
 								dayOfWeek={this.state.wed}
 								timeClicked={this.state.timeClicked}
 								updateTimeArray={this.updateTimeArray}
@@ -126,7 +140,7 @@ class App extends Component {
 								setTimeClicked={this.setTimeClicked} />
 							<Day 
 								src={u212}
-								day={"thu"}
+								day={"Torsdag"}
 								dayOfWeek={this.state.thu}
 								timeClicked={this.state.timeClicked}
 								updateTimeArray={this.updateTimeArray}
@@ -134,7 +148,7 @@ class App extends Component {
 								setTimeClicked={this.setTimeClicked} />
 							<Day 
 								src={u213}
-								day={"fri"}
+								day={"Fredag"}
 								dayOfWeek={this.state.fri}
 								timeClicked={this.state.timeClicked}
 								updateTimeArray={this.updateTimeArray}
@@ -142,7 +156,7 @@ class App extends Component {
 								setTimeClicked={this.setTimeClicked} />
 							<Day 
 								src={u214}
-								day={"sat"}
+								day={"Lördag"}
 								dayOfWeek={this.state.sat}
 								timeClicked={this.state.timeClicked}
 								updateTimeArray={this.updateTimeArray}
@@ -150,14 +164,13 @@ class App extends Component {
 								setTimeClicked={this.setTimeClicked} />
 							<Day 
 								src={u208}
-								day={"sun"}
+								day={"Söndag"}
 								dayOfWeek={this.state.sun}
 								timeClicked={this.state.timeClicked}
 								updateTimeArray={this.updateTimeArray}
 								deleteTime={this.deleteTime}
 								setTimeClicked={this.setTimeClicked} />
 					  </WeeklyCalender>
-					  
 				</div>
 			)
   		} 
