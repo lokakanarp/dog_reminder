@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Day from './Day';
 import Nav from './Nav';
 import WeeklyCalender from './WeeklyCalender';
+import Home from './Home';
 import u208 from '../images/u208.png';
 import u209 from '../images/u209.png';
 import u210 from '../images/u210.png';
@@ -16,8 +17,8 @@ import '../App.css';
 class App extends Component {
 	
 	state = {
-		weeklyCalender: true,
-		home: false,
+		weeklyCalender: false,
+		home: true,
 		timeClicked: 0,
 		mon: [0, 16],
 		tue: [],
@@ -26,6 +27,12 @@ class App extends Component {
 		fri: [],
 		sat: [],
 		sun: []	
+	}
+	openWeeklyCalender = () => {
+		this.setState({weeklyCalender: true, home: false});
+	}
+	openHome = () => {
+		this.setState({home: true, weeklyCalender: false});
 	}
 	setTimeClicked = (time) => {
 		this.setState({timeClicked: time});
@@ -107,12 +114,13 @@ class App extends Component {
 		}
 		this.setState({timeClicked: 0});
 	}
+	
 	render() {
 		
 		if (this.state.weeklyCalender) {
 			return (
 				<div>
-					<Nav />
+					<Nav openHome={this.openHome}/>
 					  <WeeklyCalender>
 							<Day 
 								src={u209}
@@ -174,13 +182,14 @@ class App extends Component {
 				</div>
 			)
   		} 
-		return (
-			//Det här ska ändras
-			<div>
-				<Nav />
-					<p>you don´t have time</p>
-			</div>
-			)
+		else if (this.state.home) {
+			return (
+				<div>
+					<Nav />
+					<Home openWeeklyCalender={this.openWeeklyCalender}/>
+				</div>
+				)
+			}
 		}	
 	}
 

@@ -30,7 +30,7 @@ class Day extends Component {
 			<div className="weekdayMain">
 				<div className="weekdayImg">
 					<div className="circle">
-						<img src={this.props.src} alt="dog"/>
+						<img className="images" src={this.props.src} alt="dog"/>
 					</div>
 				</div>
 				<div className="weekdayTimes">
