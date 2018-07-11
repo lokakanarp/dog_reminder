@@ -20,14 +20,13 @@ class App extends Component {
 		weeklyCalender: false,
 		home: true,
 		timeClicked: 0,
-		mon: ["0", "16"],
+		mon: ["16"],
 		tue: ["08"],
 		wed: [],
 		thu: [],
 		fri: [],
 		sat: [],
-		sun: [],
-		arrayForHome: 8
+		sun: []
 	}
 	openWeeklyCalender = () => {
 		this.setState({weeklyCalender: true, home: false});
@@ -36,7 +35,7 @@ class App extends Component {
 		this.setState({home: true, weeklyCalender: false});
 	}
 	setTimeClicked = (time) => {
-		let intTime = parseInt(time)
+		let intTime = parseInt(time, 10);
 		this.setState({timeClicked: intTime});
 	}
 	deleteTime = (timeToDelete, dayOfWeek) => {
