@@ -8,7 +8,6 @@ class Day extends Component {
 	}
 
 	showTimeSettingDiv = () => {
-		console.log("hej");
 		this.setState({timeSettingDiv: true})	
 	}
 	closeTimeSettingDiv = () => {

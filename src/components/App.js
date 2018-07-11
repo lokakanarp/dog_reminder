@@ -20,8 +20,8 @@ class App extends Component {
 		weeklyCalender: false,
 		home: true,
 		timeClicked: 0,
-		mon: [0, 16],
-		tue: [8, 15, 9],
+		mon: ["0", "16"],
+		tue: ["08"],
 		wed: [],
 		thu: [],
 		fri: [],
@@ -36,7 +36,8 @@ class App extends Component {
 		this.setState({home: true, weeklyCalender: false});
 	}
 	setTimeClicked = (time) => {
-		this.setState({timeClicked: time});
+		let intTime = parseInt(time)
+		this.setState({timeClicked: intTime});
 	}
 	deleteTime = (timeToDelete, dayOfWeek) => {
 		if(dayOfWeek === this.state.mon){
@@ -56,7 +57,8 @@ class App extends Component {
 		}
 	}
 	updateTimeArray = (hours, dayOfWeek) => {
-		let newHours = this.state.timeClicked + hours.toString();
+		let newHours = this.state.timeClicked + hours;
+		newHours = newHours.toString();
 		newHours = newHours.padStart(2, "0");
 		if(dayOfWeek === this.state.mon) {
 			if(dayOfWeek.find((time) => time === newHours)) {
