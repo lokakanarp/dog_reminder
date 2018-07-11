@@ -21,12 +21,13 @@ class App extends Component {
 		home: true,
 		timeClicked: 0,
 		mon: [0, 16],
-		tue: [],
+		tue: [8, 15, 9],
 		wed: [],
 		thu: [],
 		fri: [],
 		sat: [],
-		sun: []	
+		sun: [],
+		arrayForHome: 8
 	}
 	openWeeklyCalender = () => {
 		this.setState({weeklyCalender: true, home: false});
@@ -54,11 +55,12 @@ class App extends Component {
 			this.setState({sun: this.state.sun.filter((time) => time !== timeToDelete)});
 		}
 	}
-	updateTimeArray = (hours, dayOfWeek, day) => {
-		let newHours = this.state.timeClicked + hours;
+	updateTimeArray = (hours, dayOfWeek) => {
+		let newHours = this.state.timeClicked + hours.toString();
+		newHours = newHours.padStart(2, "0");
 		if(dayOfWeek === this.state.mon) {
 			if(dayOfWeek.find((time) => time === newHours)) {
-				console.log("duplicate!")
+				console.log("gulp")
 			}
 			else {
 				this.setState({mon: dayOfWeek.concat([newHours])})
@@ -114,6 +116,7 @@ class App extends Component {
 		}
 		this.setState({timeClicked: 0});
 	}
+
 	
 	render() {
 		
@@ -183,10 +186,18 @@ class App extends Component {
 			)
   		} 
 		else if (this.state.home) {
+			
 			return (
 				<div>
 					<Nav />
-					<Home openWeeklyCalender={this.openWeeklyCalender}/>
+					<Home openWeeklyCalender={this.openWeeklyCalender} 
+						mon={this.state.mon}
+						tue={this.state.tue}
+						wed={this.state.wed}
+						thu={this.state.thu}
+						fri={this.state.fri}
+						sat={this.state.sat}
+						sun={this.state.sun}/>
 				</div>
 				)
 			}

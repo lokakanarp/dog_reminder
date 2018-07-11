@@ -3,9 +3,31 @@ import dogHeader from '../images/hund8_small.png';
 
 export default function Home (props) {
 	
-		let date = new Date();
-		let weekdays = ["Söndag", "Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag"];
-		let todaysWeekday = weekdays[date.getDay()];
+	let date = new Date();
+	let weekdays = ["Söndag", "Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag"];
+	let todaysWeekday = weekdays[date.getDay()];
+	
+	let todaysTimes = '';
+	if(date.getDay() === 0){
+		todaysTimes = props.sun;
+	} else if(date.getDay() === 1) {
+		todaysTimes = props.mon;
+	} else if(date.getDay() === 2) {
+		todaysTimes = props.tue;
+	} else if(date.getDay() === 3) {
+		todaysTimes = props.wed;
+	} else if(date.getDay() === 4) {
+		todaysTimes = props.thu;
+	} else if(date.getDay() === 5) {
+		todaysTimes = props.fri;
+	} else if(date.getDay() === 6) {
+		todaysTimes = props.sat;
+	} 
+	console.log(todaysTimes);
+	let times = todaysTimes.map((time) => 
+			<li key={time}>{time}</li>)
+	
+		
 	
 	return (
 		 <div className="wrapper">
@@ -24,7 +46,7 @@ export default function Home (props) {
 				</div>
 				<div className="homeTimes">
 					<p>{todaysWeekday}</p>
-					<ul><li>hej</li></ul>
+					<ul>{times}</ul>
 					<button className="weeklyCalenderButton" onClick={props.openWeeklyCalender}>ÄNDRA TIDER</button>
 				</div>
 				
