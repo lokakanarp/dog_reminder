@@ -123,7 +123,7 @@ class App extends Component {
 				this.setState({sun: dayOfWeek.concat([newHours])})
 			}
 		}
-		this.setState({timeClicked: 0});
+		this.setState({timeClicked: 0, minClicked: 0});
 	}
 
 	

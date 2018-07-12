@@ -18,9 +18,9 @@ class Day extends Component {
 		
 		let sortedtimes = this.props.dayOfWeek;
 		sortedtimes = sortedtimes.map(Number);
-		
 		sortedtimes.sort(function(a, b){return a-b});
 		sortedtimes = sortedtimes.map(String);
+		sortedtimes = sortedtimes.map((stringtime) => stringtime.padStart(4, "0"));
 		console.log(sortedtimes);
 		let times = sortedtimes.map((time) => 
 			<li key={time} onClick={() => {
