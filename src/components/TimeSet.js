@@ -26,7 +26,7 @@ class TimeSet extends Component {
 	}
 
 	handleSubmit = () => {
-	  		this.props.updateTimeArray(this.state.hours, this.props.dayOfWeek);
+	  		this.props.updateTimeArray(this.state.hours, this.state.min, this.props.dayOfWeek);
 			this.setState({hours: 0, min: 0})
 	}
 
@@ -36,7 +36,7 @@ class TimeSet extends Component {
 						<h3>Ställ in en tid för påminnelse för {this.props.day}.</h3>
 						<p onClick={this.addingHours}>timmar plus</p>
 						<p onClick={this.addingMinutes}>minuter plus</p>
-						<h3>{this.props.timeClicked + this.state.hours}</h3>
+						<h3>{this.props.timeClicked + this.state.hours}:{this.props.minClicked + this.state.min}</h3>
 						<p onClick={this.subtractingHours}>timmar minus</p>
 						<p onClick={this.subtractingMinutes}>minuter minus</p>
 						<button className="timeSetDivRemoveButton" onClick={this.props.closeTimeSettingDiv}>TA BORT TID</button>

@@ -59,10 +59,14 @@ class App extends Component {
 			this.setState({sun: this.state.sun.filter((time) => time !== timeToDelete)});
 		}
 	}
-	updateTimeArray = (hours, dayOfWeek) => {
+	updateTimeArray = (hours, min, dayOfWeek) => {
 		let newHours = this.state.timeClicked + hours;
+		let newMin = this.state.minClicked + min;
 		newHours = newHours.toString();
 		newHours = newHours.padStart(2, "0");
+		newMin = newMin.toString();
+		newMin = newMin.padStart(2, "0");
+		newHours = newHours + newMin;
 		if(dayOfWeek === this.state.mon) {
 			if(dayOfWeek.find((time) => time === newHours)) {
 				console.log("gulp")
@@ -135,6 +139,7 @@ class App extends Component {
 								day={"Måndag"}
 								dayOfWeek={this.state.mon}
 								timeClicked={this.state.timeClicked}
+								minClicked={this.state.minClicked}
 								updateTimeArray={this.updateTimeArray}
 								deleteTime={this.deleteTime}
 								setTimeClicked={this.setTimeClicked} />
@@ -143,6 +148,7 @@ class App extends Component {
 								day={"Tisdag"}
 								dayOfWeek={this.state.tue}
 								timeClicked={this.state.timeClicked}
+								minClicked={this.state.minClicked}
 								updateTimeArray={this.updateTimeArray}
 								deleteTime={this.deleteTime}
 								setTimeClicked={this.setTimeClicked} />
@@ -151,6 +157,7 @@ class App extends Component {
 								day={"Onsdag"}
 								dayOfWeek={this.state.wed}
 								timeClicked={this.state.timeClicked}
+								minClicked={this.state.minClicked}
 								updateTimeArray={this.updateTimeArray}
 								deleteTime={this.deleteTime}
 								setTimeClicked={this.setTimeClicked} />
@@ -159,6 +166,7 @@ class App extends Component {
 								day={"Torsdag"}
 								dayOfWeek={this.state.thu}
 								timeClicked={this.state.timeClicked}
+								minClicked={this.state.minClicked}
 								updateTimeArray={this.updateTimeArray}
 								deleteTime={this.deleteTime}
 								setTimeClicked={this.setTimeClicked} />
@@ -167,6 +175,7 @@ class App extends Component {
 								day={"Fredag"}
 								dayOfWeek={this.state.fri}
 								timeClicked={this.state.timeClicked}
+								minClicked={this.state.minClicked}
 								updateTimeArray={this.updateTimeArray}
 								deleteTime={this.deleteTime}
 								setTimeClicked={this.setTimeClicked} />
@@ -175,6 +184,7 @@ class App extends Component {
 								day={"Lördag"}
 								dayOfWeek={this.state.sat}
 								timeClicked={this.state.timeClicked}
+								minClicked={this.state.minClicked}
 								updateTimeArray={this.updateTimeArray}
 								deleteTime={this.deleteTime}
 								setTimeClicked={this.setTimeClicked} />
@@ -183,6 +193,7 @@ class App extends Component {
 								day={"Söndag"}
 								dayOfWeek={this.state.sun}
 								timeClicked={this.state.timeClicked}
+								minClicked={this.state.minClicked}
 								updateTimeArray={this.updateTimeArray}
 								deleteTime={this.deleteTime}
 								setTimeClicked={this.setTimeClicked} />
