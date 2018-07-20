@@ -3,6 +3,7 @@ li {
 	color: #660000;
 	font-size: 6.5vw;
 	font-weight: 700;
+	line-height: 120%;
 }
 h2 {
 	font-size: 5vw;
@@ -11,6 +12,9 @@ h2 {
 }
 ul {
 	padding: 0;
+}
+img {
+	max-width: 100%;
 }
 .weekday h2 {
 	color: #006666;
@@ -36,7 +40,7 @@ ul {
 	width: 90%;
 	background-color: #FFF9F2;
 	box-shadow: 2px 3px 15px #888888;
-	padding: 10px 25px 10px 25px;
+	padding: 10px 25px 20px 25px;
 	box-sizing: border-box;	
 	margin-bottom: 3%;
 }
@@ -127,15 +131,13 @@ ul {
 	box-sizing: border-box;
 }
 .weeklyCalenderButton {
-	width: 140px;
+	width: 180px;
 	height: 40px;
-	background-color: white;
-	border: 3px solid #006666;
+	background-color: #006666;
 	font-weight: 700;
-	color: #006666;
+	color: white;
 	border-radius: 15px;
 	padding: 5px 0 6px 0;
-	margin-bottom: 5%;
 	font-size: 4vw;
 	box-sizing: border-box;
 }
@@ -150,4 +152,17 @@ ul {
 	flex-direction: column;
 	align-items: center;
 	
+}
+.liHome {
+	line-height: 125%;
+	font-size: 8vw;
+}
+.arrowsUp {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+.arrow {
+	width: 25%;
+	padding: 8px;
 }

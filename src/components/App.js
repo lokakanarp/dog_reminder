@@ -17,15 +17,15 @@ import '../App.css';
 class App extends Component {
 	
 	state = {
-		weeklyCalender: false,
-		home: true,
+		weeklyCalender: true,
+		home: false,
 		timeClicked: 0,
 		minClicked: 0,
 		mon: ["1630"],
-		tue: ["08"],
+		tue: [],
 		wed: [],
 		thu: [],
-		fri: [],
+		fri: ["0800", "1200", "1600"],
 		sat: [],
 		sun: []
 	}

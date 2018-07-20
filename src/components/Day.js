@@ -22,12 +22,13 @@ class Day extends Component {
 		sortedtimes = sortedtimes.map(String);
 		sortedtimes = sortedtimes.map((stringtime) => stringtime.padStart(4, "0"));
 		console.log(sortedtimes);
-		let times = sortedtimes.map((time) => 
+		
+		let times = sortedtimes.map((time) => 						
 			<li key={time} onClick={() => {
 			this.props.setTimeClicked(time);
 			this.props.deleteTime(time, this.props.dayOfWeek);
 			this.showTimeSettingDiv();
-		}}>{time}</li>)
+		}}>{time.substring(0,2) + ":" + time.substring(2)}</li>)
 		return (
 		<div className="weekday">
 			<WeekdayHeading day={this.props.day} />
@@ -41,7 +42,7 @@ class Day extends Component {
 					<ul>{times}</ul> 
 					<div className="addButton" onClick={this.showTimeSettingDiv}>NY TID</div>
 					<TimeSet 
-						//day={this.props.day}
+						 day={this.props.day}
 						 timeSettingDiv={this.state.timeSettingDiv}
 						 timeClicked={this.props.timeClicked}
 						 minClicked={this.props.minClicked}

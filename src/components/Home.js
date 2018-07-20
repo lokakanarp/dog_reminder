@@ -25,7 +25,7 @@ export default function Home (props) {
 	} 
 	console.log(todaysTimes);
 	let times = todaysTimes.map((time) => 
-			<li key={time}>{time}</li>)
+			<li className="liHome" key={time}>{time.substring(0,2) + ":" + time.substring(2)}</li>)
 	
 		
 	
@@ -42,10 +42,9 @@ export default function Home (props) {
 					<h2>DAGENS VÄDER</h2>
 				</div>
 				<div className="headingLine">
-					<h2>DAGENS TIDER</h2>
+					<h2>DAGENS TIDER - {todaysWeekday.toUpperCase()}</h2>
 				</div>
 				<div className="homeTimes">
-					<p>{todaysWeekday}</p>
 					<ul>{times}</ul>
 					<button className="weeklyCalenderButton" onClick={props.openWeeklyCalender}>ÄNDRA TIDER</button>
 				</div>

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import arrow_up from '../images/arrow_up.png';
+import arrow_down from '../images/arrow_down.png';
 
 class TimeSet extends Component {
 	state = {
@@ -33,12 +35,27 @@ class TimeSet extends Component {
 	render() {
 			if (this.props.timeSettingDiv) {
 			return (<div className="timeSetDiv">
-						<h3>Ställ in en tid för påminnelse för {this.props.day}.</h3>
-						<p onClick={this.addingHours}>timmar plus</p>
-						<p onClick={this.addingMinutes}>minuter plus</p>
+						<h3>Ställ in en påminnelsetid för {this.props.day}.</h3>
+						<div className="arrowsUp">
+							<div className="arrow">
+								<img onClick={this.addingHours} src={arrow_up} alt="arrow"/>
+							</div>
+							<div className="arrow">
+								<img onClick={this.addingMinutes} src={arrow_up} alt="arrow"/>
+							</div>
+						</div>
+						
+						
 						<h3>{this.props.timeClicked + this.state.hours}:{this.props.minClicked + this.state.min}</h3>
-						<p onClick={this.subtractingHours}>timmar minus</p>
-						<p onClick={this.subtractingMinutes}>minuter minus</p>
+						<div className="arrowsUp">
+							<div className="arrow">
+								<img onClick={this.subtractingHours} src={arrow_down} alt="arrow"/>
+							</div>
+							<div className="arrow">
+								<img onClick={this.subtractingMinutes} src={arrow_down} alt="arrow"/>
+							</div>
+						</div>
+						
 						<button className="timeSetDivRemoveButton" onClick={this.props.closeTimeSettingDiv}>TA BORT TID</button>
 						<button className="timeSetDivButton" onClick={() => {this.handleSubmit(); this.props.closeTimeSettingDiv();}}>KLAR</button>
 					</div>);
