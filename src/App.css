@@ -10,6 +10,9 @@ h2 {
 	margin-bottom: 20px;
 	color: #660000;
 }
+h3 {
+	line-height: 150%;
+}
 ul {
 	padding: 0;
 }
@@ -130,6 +133,11 @@ img {
 	font-size: 4vw;
 	box-sizing: border-box;
 }
+.timeSetNumbers {
+	font-size: 15vw;
+	margin: 3px;
+	line-height: 100%;
+}
 .weeklyCalenderButton {
 	width: 180px;
 	height: 40px;
@@ -164,5 +172,9 @@ img {
 }
 .arrow {
 	width: 25%;
-	padding: 8px;
+	padding: 0 10px 0 10px;
 }
+.lower_timeSet {
+	margin-top: 15%;
+}
+
